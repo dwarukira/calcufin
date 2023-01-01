@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
 from app.config import config
+from app.database.session import SessionLocal
 
 app = FastAPI(
     title=config.PROJECT_NAME,
@@ -8,3 +9,5 @@ app = FastAPI(
     version="0.0.1",
     openapi_url=f"{config.API_PREFIX}/openapi.json",
 )
+
+db = SessionLocal()
