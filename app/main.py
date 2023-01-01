@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
 from app.config import config
+from app.api import api_router
 from app.database.session import SessionLocal
 
 app = FastAPI(
@@ -11,3 +12,6 @@ app = FastAPI(
 )
 
 db = SessionLocal()
+
+
+app.include_router(api_router, prefix=config.API_PREFIX)

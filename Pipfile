@@ -11,6 +11,9 @@ sqlalchemy = "*"
 alembic = "*"
 psycopg2-binary = "*"
 shortuuid = "*"
+python-jose = {extras = ["cryptography"], version = "*"}
+passlib = {extras = ["bcrypt"], version = "*"}
+python-multipart = "*"
 
 [dev-packages]
 
