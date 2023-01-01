@@ -18,9 +18,10 @@ The key features include
 > - Credit utilisation
 - Recent transaction
 > a list of recent/all transaction accross all linked accounts. With the ability to filter, sort and change categories
-- Create and manage burgets
-
-
-
-
+- Create and manage monthly budget 
+> - View monthly cashflow
+> - Create weekly targets
+> - Add and track subscription bills
+- Create finacial goals
+- Manage notifications
 
