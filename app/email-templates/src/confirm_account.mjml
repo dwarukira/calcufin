@@ -28,9 +28,17 @@
         <mj-text font-size="16px" color="#555">If you did not create a {{ project_name }} account, please contact us. at support@calcufin.co</mj-text>
       </mj-column>
     </mj-section>
+    <mj-section padding="15px 0 0 0" background-color="#FFFFFF">
+      <mj-column>
+        <mj-text font-size="16px" color="#555">Thanks,</mj-text>
+        <mj-text font-size="16px" color="#555">{{ project_name }} Team</mj-text>
+      </mj-column>
+    </mj-section>
     <mj-section padding="10px 0 20px 0">
       <mj-column>
-        <mj-text color="#445566" font-size="11px" align="center" line-height="16px">Calcufin is a trademark and/or registered trademark of Calcufin, Inc</mj-text>
+        <mj-text color="#445566" font-size="11px" align="center" line-height="16px">
+          Calcufin is a registered trademark of Calcufin Inc. POX 0728165765, Nairobi, Kenya 00100. You are receiving this email because you signed up for a Calcufin account.
+        </mj-text>
         <mj-text color="#445566" font-size="11px" align="center" line-height="16px">&copy; Calcufin Inc., All Rights Reserved.</mj-text>
       </mj-column>
     </mj-section>

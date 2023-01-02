@@ -1,10 +1,13 @@
 from datetime import timedelta
+
+from app.config import config
 from app.database import get_db
-from app.schemas.auth import Token
-from app.services.auth import authenticate_user, create_access_token
+from app.schemas import Message
+from app.schemas.auth import Token, VerifyEmail
+from app.services.auth import (authenticate_user, create_access_token,
+                               get_current_user, verify_current_user)
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
-from app.config import config
 
 auth_api_router = APIRouter()
 
@@ -25,3 +28,16 @@ async def login_for_access_token(
         data={"sub": user.uuid}, expires_delta=access_token_expires
     )
     return {"access_token": access_token, "token_type": "bearer"}
+
+
+@auth_api_router.get("/verify/email", response_model=Message)
+async def verify_email_for_access_token(
+    db=Depends(get_db), current_user=Depends(get_current_user), verify_email=VerifyEmail
+):
+    valid = verify_current_user(db, current_user, verify_email.code)
+    if not valid:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="Invalid verification code",
+        )
+    return {"message": "Email verified successfully"}

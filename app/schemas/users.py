@@ -8,6 +8,7 @@ class SignupUserSchema(BaseModel):
     password: str
     first_name: Optional[str] = None
     last_name: Optional[str] = None
+    is_mobile: Optional[bool] = False
 
 
 class User(BaseModel):

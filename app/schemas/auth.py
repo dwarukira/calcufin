@@ -11,3 +11,6 @@ class Token(BaseModel):
 class TokenData(BaseModel):
     username: Union[str, None] = None
     uuid: Union[str, None] = None
+
+class VerifyEmail(BaseModel):
+    code: str
