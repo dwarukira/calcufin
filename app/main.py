@@ -1,8 +1,13 @@
+import logging
 from fastapi import FastAPI
 
 from app.config import config
 from app.api import api_router
 from app.database.session import SessionLocal
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 
 app = FastAPI(
     title=config.PROJECT_NAME,

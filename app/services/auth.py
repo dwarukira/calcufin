@@ -1,3 +1,4 @@
+import base64
 from datetime import datetime, timedelta
 from functools import wraps
 from typing import Optional
@@ -56,3 +57,24 @@ def authenticate_user(db, email: str, password: str):
     if not user.verify_password(password):
         return False
     return user
+
+
+def generate_verification_token(email: str):
+    token = create_access_token(
+        data={"sub": email},
+        expires_delta=timedelta(hours=config.EMAIL_RESET_TOKEN_EXPIRE_HOURS),
+    )
+    token = base64.b64encode(token.encode("utf-8")).decode("utf-8")
+    return token
+
+
+def verify_verification_token(token: str):
+    try:
+        token = base64.b64decode(token.encode("utf-8")).decode("utf-8")
+        payload = jwt.decode(token, config.SECRET_KEY, algorithms=[config.ALGORITHM])
+        email: str = payload.get("sub")
+        if email is None:
+            return False
+        return email
+    except JWTError:
+        return False

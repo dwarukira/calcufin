@@ -14,6 +14,9 @@ shortuuid = "*"
 python-jose = {extras = ["cryptography"], version = "*"}
 passlib = {extras = ["bcrypt"], version = "*"}
 python-multipart = "*"
+emails = "*"
+pydantic = {extras = ["email"], version = "*"}
+jinja2 = "*"
 
 [dev-packages]
 

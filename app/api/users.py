@@ -21,7 +21,13 @@ def sign_up_user(
 ) -> User:
     user = users_service.create_user(db, sign_up_user_schema)
     background_tasks.add_task(users_service.send_new_account_email, user.email)
-    background_tasks.add_task(users_service.send_verify_account_email, user.email)
+    verification_token = auth_service.generate_verification_token(user.email)
+    background_tasks.add_task(
+        users_service.send_verify_account_email,
+        user.email,
+        user.email,
+        verification_token,
+    )
     return user
 
 
