@@ -1,11 +1,12 @@
 from datetime import timedelta
 
+from app.api.deps import get_current_user
 from app.config import config
 from app.database import get_db
 from app.schemas import Message
 from app.schemas.auth import Token, VerifyEmail
 from app.services.auth import (authenticate_user, create_access_token,
-                               get_current_user, verify_current_user)
+                               verify_current_user)
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 

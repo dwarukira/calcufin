@@ -1,0 +1,32 @@
+{
+  "name": "next-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@expo/next-adapter": "^4.0.12",
+    "@expo/vector-icons": "^13.0.0",
+    "app": "*",
+    "api": "*",
+    "next": "13.0.1",
+    "raf": "^3.4.1",
+    "react-native-vector-icons": "^9.2.0"
+  },
+  "devDependencies": {
+    "@expo/next-adapter": "^4.0.13",
+    "@native-base/next-adapter": "^2.3.0",
+    "@types/node": "17.0.21",
+    "autoprefixer": "^10.4.7",
+    "eslint-config-next": "13.0.1",
+    "next-compose-plugins": "^2.2.1",
+    "next-fonts": "^1.5.1",
+    "next-images": "^1.8.4",
+    "next-transpile-modules": "^10.0.0",
+    "tailwindcss": "^3.0.24"
+  }
+}
